@@ -1,0 +1,73 @@
+/* Author: Luigi Vincent */
+body {
+	background-color: #272822;
+}
+
+input:focus {
+	outline: none;
+}
+
+input#newGame {
+	height: 3em;
+	width: 7em;
+	font-size: 15px;
+	font-family: Arial;
+	font-weight: bold;
+	border-radius: 6px;
+	text-decoration: none;
+	background-color: #A6E22E;
+}
+input#newGame:hover {
+	color: #fff;
+}
+
+div#counter {
+	position: relative;
+	font-weight: bold;
+	font-size: 30px;
+	font-family: Arial;
+	color: #fff;
+	left: 9em;
+}
+
+.simonButton {
+	height: 20em;
+	width: 20em;
+	margin: .5em;
+}
+.simonButton:hover {
+	box-shadow: 0 0 .5em #fff;
+}
+
+input#alpha {
+	background-color: darkred;
+	border-radius: 11em 2em 5em 2em;
+}
+
+input#alpha:active {
+	background-color: red !important;
+}
+
+input#beta {
+	background-color: darkorange;
+	border-radius: 2em 11em 0em 5em;
+}
+input#beta:active {
+	background-color: yellow !important;
+}
+
+input#gamma {
+	background: darkblue;
+	border-radius: 2em 5em 0em 11em;
+}
+input#gamma:active {
+	background-color: lightblue !important;
+}
+
+input#delta {
+	background-color: darkgreen;
+	border-radius: 5em 2em 11em 0em;
+}
+input#delta:active {
+	background-color: lightgreen !important;
+}
