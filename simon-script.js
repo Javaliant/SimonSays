@@ -32,10 +32,10 @@ var buttons = [
 ];
 
 var sequence = [];
-var i_sequence = [];
 var round = 0;
 var sequenceIterator = 0;
-playing = false;
+var playing = false;
+var userTurn = false;
 
 window.onload = function() {
     alert("Try to reproduce the sequence shown.\nClick start to begin!");
@@ -50,13 +50,17 @@ window.onload = function() {
     for (var i = 0; i < buttons.length; i++) {
         document.getElementById(buttons[i].id).onclick = function() {
             if (playing) {
-                if (buttons[sequence[sequenceIterator++]].id != this.id) {
-                    gameOver();
-                }
-                if (sequenceIterator === sequence.length && playing) {
-                    sequenceIterator = 0;
-                    document.getElementById("counter").innerHTML = ++round;
-                    computerTurn();
+                if (!userTurn) {
+                    alert("Wait for the sequence to end before trying to reproduce.");
+                } else {
+                    if (buttons[sequence[sequenceIterator++]].id != this.id) {
+                        gameOver();
+                    }
+                    if (sequenceIterator === sequence.length && playing) {
+                        sequenceIterator = 0;
+                        document.getElementById("counter").innerHTML = ++round;
+                        computerTurn();
+                    }
                 }
             } else {
                 alert("Click upper left button to start a New Game.");
@@ -66,6 +70,7 @@ window.onload = function() {
 }
 
 function computerTurn() {
+    userTurn = false;
     extendSequence(1);
     showSequence();
 }
@@ -102,6 +107,8 @@ function showSequence() {
             buttons[sequence[i++]].highlight();
             if (i < sequence.length) {
                 sequenceLoop();
+            } else {
+                userTurn = true;
             }
         }, 1000);
     }
